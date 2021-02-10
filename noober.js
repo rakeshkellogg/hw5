@@ -13,9 +13,11 @@ function levelOfService(ride) {
 }
 
 function renderRides(ridesArray) {
+
+  document.querySelector('.rides').innerHTML=(``)
   for (let i = 0; i < ridesArray.length; i++) {
     let ride = ridesArray[i]
-
+     
     document.querySelector('.rides').insertAdjacentHTML('beforeend', `
       <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
         <i class="fas fa-car-side"></i>
@@ -67,7 +69,142 @@ function renderRides(ridesArray) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function(e) {
   // YOUR CODE
+console.log(e)
+
+let clickAllRides = document.querySelector('#all-filter')
+clickAllRides.addEventListener('click', async function(event){
+let response = await fetch('https://kiei451.com/api/rides.json')
+let json = await response.json()
+console.log(json)
+console.log(json.length)
+renderRides(json)
+    
+  })
+
+let clickNooberPool = document.querySelector('#noober-pool-filter')
+ clickNooberPool.addEventListener('click', async function(event){
+ let response = await fetch('https://kiei451.com/api/rides.json')
+ let json = await response.json()
+ console.log(json)
+ console.log(json.length)
+
+let poolArray=[]
+for (let i = 0; i < json.length; i++) {
+
+    let eachProduct = json[i]
+    let a=levelOfService(eachProduct)
+
+    console.log(a)
+    
+    
+if(a=="Noober Pool")
+{
+  console.log(a)
+poolArray.push(json[i])
+console.log(poolArray)
+}
+else{}
+
+}
+console.log(poolArray)
+ renderRides(poolArray)
+    
+   })
+
+
+
+let clickNooberPurple = document.querySelector('#noober-purple-filter')
+ clickNooberPurple.addEventListener('click', async function(event){
+ let response = await fetch('https://kiei451.com/api/rides.json')
+ let json = await response.json()
+ console.log(json)
+ console.log(json.length)
+
+let poolArray=[]
+for (let i = 0; i < json.length; i++) {
+
+    let eachProduct = json[i]
+    let a=levelOfService(eachProduct)
+    console.log(a)
+       
+if(a=="Noober Purple")
+{
+  console.log(a)
+poolArray.push(json[i])
+console.log(poolArray)
+}
+else{}
+}
+console.log(poolArray)
+renderRides(poolArray)
+    
+   })
+
+
+let clickNooberXL = document.querySelector('#noober-xl-filter')
+ clickNooberXL.addEventListener('click', async function(event){
+ let response = await fetch('https://kiei451.com/api/rides.json')
+ let json = await response.json()
+ console.log(json)
+ console.log(json.length)
+
+let poolArray=[]
+for (let i = 0; i < json.length; i++) {
+
+    let eachProduct = json[i]
+    let a=levelOfService(eachProduct)
+    console.log(a)
+       
+if(a=="Noober XL")
+{
+  console.log(a)
+poolArray.push(json[i])
+console.log(poolArray)
+}
+else{}
+}
+console.log(poolArray)
+renderRides(poolArray)
+    
+   })
+
+
+let clickNooberX = document.querySelector('#noober-x-filter')
+ clickNooberX.addEventListener('click', async function(event){
+ let response = await fetch('https://kiei451.com/api/rides.json')
+ let json = await response.json()
+ console.log(json)
+ console.log(json.length)
+
+let poolArray=[]
+for (let i = 0; i < json.length; i++) {
+
+    let eachProduct = json[i]
+    let a=levelOfService(eachProduct)
+    console.log(a)
+       
+if(a=="Noober X")
+{
+  console.log(a)
+poolArray.push(json[i])
+console.log(poolArray)
+}
+else{}
+}
+console.log(poolArray)
+renderRides(poolArray)
+    
+   })
+
+
 })
+
+
+
+
+
+
+
 
